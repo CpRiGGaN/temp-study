@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentinka 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="crt-overlay"></div>
+
+    <div class="bg-decoration heart-1">♥</div>
+    <div class="bg-decoration heart-2">♥</div>
+    <div class="bg-decoration heart-3">♥</div>
+    <div class="bg-decoration heart-4">♥</div>
+    <div class="bg-decoration heart-5">♥</div>
+    <div class="bg-decoration heart-6">♥</div>
+
+    <div id="screen-start">
+        <div class="valentine-container">
+            <h1 class="game-title">Happy Valentine's Day, MY LOVE</h1>
+            <div class="pixel-letter-container" onclick="openLetterAnim()">
+                <div class="envelope-base"></div>
+                <div class="paper-inside">
+                    <span style="color: red;">♥</span> Я тебя люблю) <span style="color: red;">♥</span>
+                </div>
+                <div class="envelope-flap"></div>
+            </div>
+            <div class="click-hint blink">Тыкай</div>
+        </div>
+    </div>
+
+    <div id="screen-desktop">
+        <div class="system-info">
+            <div style="color: var(--accent-pink); margin-bottom: 5px;">♥ SYSTEM USERS ♥</div>
+            <div class="player-name" style="color: #84fab0;">> Kira</div>
+            <div class="player-name" style="color: #a18cd1;">> Kuzma</div>
+        </div>
+
+        <div class="desktop-icons-container">
+            <div class="desktop-icons-grid">
+                <div class="icon" onclick="openWindow('win-letter')">
+                    <div class="icon-img">💌</div>
+                    <p>ридми.txt</p>
+                </div>
+                <div class="icon" onclick="openWindow('win-photos')">
+                    <div class="icon-img">📸</div>
+                    <p>воспоминания</p>
+                </div>
+                <div class="icon" onclick="openWindow('win-music')">
+                    <div class="icon-img">💽</div>
+                    <p>послушай</p>
+                </div>
+                <div class="icon" onclick="openWindow('win-reasons')">
+                    <div class="icon-img">☀️</div>
+                    <p>о тебе</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="taskbar">
+            <div style="font-weight: bold; color: var(--accent-pink);">♥ START</div>
+            <div class="clock" id="clock">00:00</div>
+        </div>
+    </div>
+
+    <div class="window" id="win-letter">
+        <div class="title-bar"><span>NOTEPAD.EXE</span><button onclick="closeWindow('win-letter')">X</button></div>
+        <div class="window-body">
+            <p>Бубочка!</p><br>
+            <p>Сейчас я не могу сказать это вживую, поэтому хочу написать, спасибо тебе за то, что ты есть, и за то, что этот день я встречаю именно с тобой,любимая</p><br><p>ты моя любимая бусинка ❤️</p>
+            <p align="right">Love, Kuzma</p>
+        </div>
+    </div>
+
+    <div class="window" id="win-photos" style="width: 700px;">
+        <div class="title-bar"><span>GALLERY</span><button onclick="closeWindow('win-photos')">X</button></div>
+        <div class="window-body">
+            <div class="gallery-grid">
+                <div class="photo-item" style="background-image: url('1.jpg');"></div>
+                <div class="photo-item" style="background-image: url('2.jpg');"></div>
+                <div class="photo-item" style="background-image: url('3.jpg');"></div>
+                <div class="photo-item" style="background-image: url('4.jpg');"></div>
+                <div class="photo-item" style="background-image: url('5.jpg');"></div>
+                <div class="photo-item" style="background-image: url('6.jpg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window" id="win-music">
+        <div class="title-bar"><span>WINAMP</span><button onclick="closeWindow('win-music')">X</button></div>
+        <div class="window-body">
+            <audio id="audio-player" controls style="width: 100%; margin-bottom: 10px;"></audio>
+            
+            <div class="track" onclick="playSong('cheri-cheri-lady-lyrics.mp3', this)">
+                1. Modern Talking - Cheri Cheri Lady
+            </div>
+            
+            <div class="track" onclick="playSong('The%20Police%20-%20Every%20Breath%20You%20Take.mp3', this)">
+                2. The Police - Every Breath You Take
+            </div>
+
+            <div class="track" onclick="playSong('Aerosmith_-_I_Dont_Want_to_Miss_a_Thing_(musmore.com).mp3', this)">
+                3. Aerosmith - I Don't Want to Miss a Thing
+            </div>
+
+            <div class="track" onclick="playSong('scorpions_obsession_-_obsession_(z3.fm).mp3', this)">
+                4. Scorpions - Obsession
+            </div>
+        </div>
+    </div>
+
+    <div class="window" id="win-reasons">
+        <div class="title-bar"><span>ABOUT_YOU</span><button onclick="closeWindow('win-reasons')">X</button></div>
+        <div class="window-body">
+            <p>Солнышко мое, любовь моя, моя валентинка, сегодня наше первое 14 февраля, спасибо за все моменты проведенные вместе, за то, что ты дала почувствовать себя любимым и нужным, спасибо, что ты всегда рядом, хоть это и первое наше 14 февраля, но дальше будет больше и только лучше, я тебя люблю)❤️</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
