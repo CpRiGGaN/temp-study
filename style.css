@@ -91,37 +91,43 @@ body {
 /* ИКОНКИ КВАДРАТОМ (2 колонки) */
 .desktop-icons-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
 
+/* 1. Убираем внешнюю белую рамку и даем больше "воздуха" между иконками */
 .desktop-icons-grid { 
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; 
-    background: rgba(253, 251, 247, 0.5); /* Светлая подложка для сетки */
-    padding: 30px; border: 3px solid #FFF; backdrop-filter: blur(5px); 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 60px; /* Увеличили расстояние между иконками */
+    background: transparent; /* Убрали подложку */
+    padding: 20px; 
+    border: none; /* Убрали белую рамку! */
 }
 
+/* 2. Настраиваем контейнер самой иконки */
 .icon { 
-    width: 100px; text-align: center; cursor: pointer; 
-    color: #333; /* Темные подписи */
-    text-shadow: 1px 1px 0 #FFF; /* Легкая белая обводка текста */
+    width: 120px; /* Сделали шире, чтобы текст снизу не ломался */
+    text-align: center; 
+    cursor: pointer; 
+    color: #555; /* Мягкий темный цвет для текста вместо жесткого черного */
+    transition: transform 0.2s ease;
 }
+
+/* Эффект легкого подпрыгивания при наведении */
+.icon:hover {
+    transform: translateY(-5px); 
+}
+
+/* 3. Делаем символы крупными и убираем серые квадраты */
 .icon-img { 
     width: 80px; 
     height: 80px; 
-    background: rgba(255, 255, 255, 0.7); /* Эффект матового стекла */
-    border: 2px solid var(--accent-pink); /* Нежная розовая рамочка */
-    border-radius: 12px; /* Мягкие края */
-    margin: 0 auto 10px; 
+    background: transparent; /* УБРАЛИ СЕРЫЙ ЦВЕТ */
+    border: none; /* УБРАЛИ ЧЕРНУЮ РАМКУ */
+    margin: 0 auto 15px; /* Чуть отодвинули текст вниз */
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    font-size: 55px; 
-    color: var(--accent-pink); 
-    box-shadow: 2px 2px 10px rgba(255, 117, 143, 0.2); 
-    transition: transform 0.2s ease, background 0.2s ease; 
-}
-
-/* Эффект при наведении */
-.icon:hover .icon-img {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 1);
+    font-size: 75px; /* Сделали символы КРУПНЫМИ и пропорциональными */
+    color: var(--accent-pink); /* Красим их в нежно-розовый */
+    text-shadow: 3px 3px 0px rgba(255, 117, 143, 0.15); /* Очень легкая, нежная тень */
 }
 
 .window { position: absolute; width: 600px; background: var(--win-grey); border: 2px solid white; border-right-color: #404040; border-bottom-color: #404040; display: none; flex-direction: column; z-index: 10; box-shadow: 10px 10px 0 rgba(0,0,0,0.5); }
