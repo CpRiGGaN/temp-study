@@ -13,7 +13,7 @@
 body {
     margin: 0; padding: 0; height: 100vh; width: 100vw;
     font-family: 'VT323', monospace; overflow: hidden; 
-    background-color: #FDFBF7; /* Молочный фон */
+    background-color: #FDFBF7; 
 }
 
 #screen-start, #screen-desktop {
@@ -24,7 +24,6 @@ body {
 
 .crt-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    /* Светлые полосы и светлая виньетка по краям */
     background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(200, 200, 200, 0.15) 50%);
     background-size: 100% 4px; z-index: 9999; pointer-events: none;
     box-shadow: inset 0 0 100px rgba(255, 248, 231, 0.8);
@@ -32,9 +31,10 @@ body {
 
 .bg-decoration {
     position: absolute; color: var(--accent-pink); font-size: 2rem; opacity: 0.6;
-    z-index: 1; text-shadow: 2px 2px 0 #FFF; /* Белая тень */
+    z-index: 1; text-shadow: 2px 2px 0 #FFF; 
     animation: floatUp linear infinite;
 }
+
 @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0.6; } 100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; } }
 
 .heart-1 { left: 10%; bottom: -10%; animation-duration: 7s; font-size: 3rem; }
@@ -46,7 +46,6 @@ body {
 
 #screen-start {
     z-index: 100; display: flex; justify-content: center; align-items: center;
-    /* Полупрозрачный молочный фон стартового экрана */
     background-color: rgba(253, 251, 247, 0.85); background-blend-mode: multiply;
     transition: opacity 0.8s ease;
 }
@@ -54,15 +53,16 @@ body {
 .valentine-container { text-align: center; }
 
 .game-title { 
-    color: var(--accent-pink); /* Розовый текст */
+    color: var(--accent-pink); 
     font-size: 4rem; 
-    text-shadow: 4px 4px 0 #FFF, 6px 6px 0 #F8BBD0; /* Светлые тени */
+    text-shadow: 4px 4px 0 #FFF, 6px 6px 0 #F8BBD0; 
     margin-bottom: 40px; 
 }
 
 .pixel-letter-container {
     width: 320px; height: 220px; position: relative; margin: 0 auto 30px; cursor: pointer; transition: transform 0.2s;
 }
+
 .pixel-letter-container:hover { transform: translateY(-5px); }
 .envelope-base { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: var(--env-color); border: 6px solid #000; z-index: 10; }
 .envelope-flap { position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: var(--env-dark); border: 6px solid #000; border-bottom: none; z-index: 20; transform-origin: top; transition: transform 0.4s steps(4, end), opacity 0.1s steps(1, end) 0.3s; }
@@ -72,7 +72,7 @@ body {
 .pixel-letter-container.is-opening .paper-inside { transform: translateX(-50%) translateY(-150px); z-index: 30; }
 
 .click-hint { 
-    color: #333; /* Темный текст для читаемости на светлом фоне */
+    color: #333; 
     font-size: 1.5rem; margin-top: 20px; letter-spacing: 2px; 
 }
 .blink { animation: blink 1s infinite steps(1); }
@@ -82,52 +82,47 @@ body {
 
 .system-info { 
     position: absolute; top: 20px; left: 20px; 
-    background: rgba(253, 251, 247, 0.85); /* Светлая плашка */
+    background: rgba(253, 251, 247, 0.85); 
     border: 2px solid var(--accent-pink); padding: 15px; 
-    color: #333; /* Темный текст */
+    color: #333; 
     z-index: 50; 
 }
 
-/* ИКОНКИ КВАДРАТОМ (2 колонки) */
 .desktop-icons-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
 
-/* 1. Убираем внешнюю белую рамку и даем больше "воздуха" между иконками */
 .desktop-icons-grid { 
     display: grid; 
     grid-template-columns: repeat(2, 1fr); 
-    gap: 60px; /* Увеличили расстояние между иконками */
-    background: transparent; /* Убрали подложку */
+    gap: 60px; 
+    background: transparent; 
     padding: 20px; 
-    border: none; /* Убрали белую рамку! */
+    border: none; 
 }
 
-/* 2. Настраиваем контейнер самой иконки */
 .icon { 
-    width: 120px; /* Сделали шире, чтобы текст снизу не ломался */
+    width: 120px; 
     text-align: center; 
     cursor: pointer; 
-    color: #555; /* Мягкий темный цвет для текста вместо жесткого черного */
+    color: #555; 
     transition: transform 0.2s ease;
 }
 
-/* Эффект легкого подпрыгивания при наведении */
 .icon:hover {
     transform: translateY(-5px); 
 }
 
-/* 3. Делаем символы крупными и убираем серые квадраты */
 .icon-img { 
     width: 80px; 
     height: 80px; 
-    background: transparent; /* УБРАЛИ СЕРЫЙ ЦВЕТ */
-    border: none; /* УБРАЛИ ЧЕРНУЮ РАМКУ */
-    margin: 0 auto 15px; /* Чуть отодвинули текст вниз */
+    background: transparent; 
+    border: none; 
+    margin: 0 auto 15px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    font-size: 75px; /* Сделали символы КРУПНЫМИ и пропорциональными */
-    color: var(--accent-pink); /* Красим их в нежно-розовый */
-    text-shadow: 3px 3px 0px rgba(255, 117, 143, 0.15); /* Очень легкая, нежная тень */
+    font-size: 75px; 
+    color: var(--accent-pink); 
+    text-shadow: 3px 3px 0px rgba(255, 117, 143, 0.15); 
 }
 
 .window { position: absolute; width: 600px; background: var(--win-grey); border: 2px solid white; border-right-color: #404040; border-bottom-color: #404040; display: none; flex-direction: column; z-index: 10; box-shadow: 10px 10px 0 rgba(0,0,0,0.5); }
@@ -137,7 +132,6 @@ body {
 .taskbar { position: absolute; bottom: 0; width: 100%; height: 40px; background: var(--win-grey); border-top: 2px solid white; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; }
 .clock { background: white; border: 2px solid #888; padding: 2px 10px; }
 
-/* ГАЛЕРЕЯ (3 колонки) */
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .photo-item { height: 150px; background-size: cover; background-position: center; border: 2px solid #888; cursor: pointer; transition: transform 0.2s; }
 .photo-item:hover { transform: scale(1.05); border-color: white; }

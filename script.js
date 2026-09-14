@@ -23,7 +23,6 @@ function openWindow(id) {
     win.style.display = 'flex';
     win.style.zIndex = ++zIndexCounter;
     
-    // Центрирование
     if (!win.style.top) {
         const width = win.offsetWidth;
         const height = win.offsetHeight;
@@ -47,21 +46,18 @@ function playSong(url, element) {
     element.classList.add('active');
 }
 
-// Перетаскивание (Drag & Drop)
 document.querySelectorAll('.window').forEach(win => {
     const titleBar = win.querySelector('.title-bar');
     let isDragging = false, offsetX, offsetY;
     
-    // Начало перетаскивания
     titleBar.addEventListener('mousedown', (e) => {
         isDragging = true;
         win.style.zIndex = ++zIndexCounter;
         offsetX = e.clientX - win.offsetLeft;
         offsetY = e.clientY - win.offsetTop;
-        titleBar.style.cursor = 'grabbing'; // Курсор-рука сжимается
+        titleBar.style.cursor = 'grabbing'; 
     });
 
-    // Движение мыши
     document.addEventListener('mousemove', (e) => {
         if (isDragging) {
             win.style.left = (e.clientX - offsetX) + 'px';
@@ -69,9 +65,8 @@ document.querySelectorAll('.window').forEach(win => {
         }
     });
 
-    // Отпускание мыши
     document.addEventListener('mouseup', () => {
         isDragging = false;
-        titleBar.style.cursor = 'grab'; // Курсор-рука разжимается
+        titleBar.style.cursor = 'grab'; 
     });
 });
